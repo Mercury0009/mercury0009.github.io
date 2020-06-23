@@ -92,7 +92,15 @@
         });
     </script>
 
-
+<script>
+    function init() {
+    var vidDefer = document.getElementsByTagName('iframe');
+    for (var i=0; i<vidDefer.length; i++) {
+    if(vidDefer[i].getAttribute('data-src')) {
+    vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
+    } } }
+    window.onload = init;
+    </script>
 
 
 
@@ -100,7 +108,12 @@
 
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W6GF4DM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe 
+        src="" data-src="https://www.googletagmanager.com/ns.html?id=GTM-W6GF4DM" 
+        height="0" 
+        width="0" 
+        frameborder="0" allowfullscreen="allowfullscreen">
+    </iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
 
@@ -1156,8 +1169,9 @@ else
 				</p>
 				<h3 class="about__header">Станьте одним из тех, кого называют «клиент на всю жизнь»</h3>
 				<div class="video-container col-xs-6">
-					 <iframe class="iframe-youtube" height="316" src="https://www.youtube.com/embed/mDuL2nkAJI0"></iframe>
-				</div>
+                    
+					 <iframe class="iframe-youtube" height="316" src="https://www.youtube.com/embed/mDuL2nkAJI0" defer></iframe>
+				</div>f
 				<p>
 					 1-я Транспортная практикует серьезный подход к делу и дорожит деловыми связями, именно поэтому 80% компаний, воспользовавшихся транспортно-логистическими услугами, становятся нашими постоянными клиентами. Мы уверены, что наша компания поможет и Вам в продвижении бизнеса, своевременно и в полном объеме выполняя возложенные на нас задачи.
 				</p>
@@ -1675,11 +1689,12 @@ else
 <!-- /GoogleAnalytics -->
 
 <!-- LiveTex {literal} -->
-<script>
+<script async type="module">
 	var liveTex = true,
 	liveTexID = 71042,
 	liveTex_object = true;
-	(function() {
+	setTimeout (function(){
+        (function() {
 	var lt = document.createElement('script');
 	lt.type ='text/javascript';
 	lt.async = true;
@@ -1687,7 +1702,9 @@ else
 	var sc = document.getElementsByTagName('script')[0];
 	if ( sc ) sc.parentNode.insertBefore(lt, sc);
 	else document.documentElement.firstChild.appendChild(lt);
-	})();
+    })();
+ };
+    5000)
 </script>
 <!-- LiveTex {/literal} -->
 
